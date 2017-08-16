@@ -1,0 +1,29 @@
+<IFModule mod_rewrite.c>
+     RewriteEngine On
+	 
+     RewriteRule ^index\.html$ /index.php [QSA,L]
+	 
+	 RewriteRule ^guangjin\.html$ /guangjin.php [QSA,L]
+	 
+	 RewriteRule ^transfer\.html$ /transfer.php [QSA,L]
+	 
+	 RewriteRule ^store\.html$ /store.php [QSA,L]
+	 
+	 RewriteRule ^user\.html$ /user.php [QSA,L]
+	 
+	 RewriteRule ^about_us-([0-9]+)(.*)\.html$ /about_us\.php\?id=$1 [QSA,L]
+	 
+	 RewriteRule ^goods-([0-9]+)(.*)\.html$ /goods\.php\?id=$1 [QSA,L]
+	 
+	 RewriteRule ^article-([0-9]+)(.*)\.html$ /article\.php\?id=$1 [QSA,L]
+	 
+	 RewriteRule ^user-([0-9]+)-([0-9]+)(.*)\.html$ /user\.php\?login_status=$1&art_id=$2 [QSA,L]
+	 
+	 RewriteRule ^user-([\w]+)(.*)\.html$ /user\.php\?act=$1 [QSA,L]
+	 
+	 
+	 RewriteRule ^category-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)(.*)\.html$ /category\.php\?id=$1&project=$2&period=$3&status=$4 [QSA,L]
+	 
+	 RewriteRule ^article_cat-([0-9]+)(.*)\.html$ /article_cat\.php\?id=$1 [QSA,L]
+	 
+</IFModule>

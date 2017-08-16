@@ -1,0 +1,175 @@
+<!-- $Id: order_info.htm 17060 2010-03-25 03:44:42Z liuhui $ -->
+
+{include file="pageheader.htm"}
+{insert_scripts files="topbar.js,../js/utils.js,listtable.js,selectzone.js,../js/common.js"}
+
+<style>
+
+td{height:35px;}
+
+</style>
+
+<div style="width:100%">
+<table border="1" style="text-align:center;padding:10px;margin:0 auto;width:70%">
+<tr>
+<td colspan="4" style="height:30px;">产品信息{if $order_info.transfer_flag eq 1} （转让中）{elseif $order_info.transfer_flag eq 2}（已转让）{/if}</td>
+</tr>
+<tr>
+	<td>
+		产品编号
+	</td>
+	<td>
+		{$order_info.goods_id}
+	</td>
+	<td>
+		产品名称
+	</td>
+	<td>
+		{$order_info.goods_name}
+	</td>
+</tr>
+<tr>
+	<td>
+		年化收益率
+	</td>
+	<td>
+		{$order_info.goods_interest_rate}%
+	</td>
+	<td>
+		所属项目
+	</td>
+	<td>
+		{$order_info.project_name}
+	</td>
+</tr>
+
+<tr>
+	<td>
+		发行人
+	</td>
+	<td>
+		{$order_info.owner_name}
+	</td>
+	<td>
+		<a href="https://jzh.fuiou.com">虚拟账户</a>
+	</td>
+	<td>
+		{$order_info.fuiou_id}
+	</td>
+</tr>
+<div>	
+	
+	
+	
+</tr>
+<tr>
+<td colspan="4" style="height:30px;">认购人信息</td>
+</tr>
+<tr>
+<td>
+用户姓名
+</td>
+<td>
+{$order_info.true_name}
+</td>
+<td>
+手机号码
+</td>
+<td>
+{$order_info.user_name}
+</td>
+</tr>
+
+<tr>
+	<td>
+		身份证号码
+	</td>
+	<td>
+		{$order_info.id_number}
+	</td>
+	
+	<td>
+		联系的业务员
+	</td>
+	<td>
+		{$order_info.seller_name}
+	</td>
+	
+</tr>
+
+
+<tr >
+	<td colspan="4">购买信息</td>
+</tr>
+
+	<td>
+		认购金额
+	</td>
+		
+	<td>
+		{$order_info.amount}
+	</td>
+	
+	<td>
+		到期收益(总)
+	</td>
+		
+	<td>
+		{$order_info.interest_amount}
+	</td>
+	
+	
+<tr>
+	<td>认购时间</td>
+	<td>{$pay_time}</td>
+	<td>到期兑付日</td>
+	<td>{$pay_end_time}</td>
+</tr>
+
+<tr>
+	<td colspan="4">{if $order_info.transfer_flag eq 2 }转让收益表格{else}预期收益表格{/if}</td>
+<tr>
+
+{if $earn_list}
+<tr>
+<td colspan="2">付息日</td>
+<td colspan="2">付息金额</td>
+</tr>
+{foreach from=$earn_list item=list}
+<tr>
+	
+	<td colspan="2">{$list.time}</td>
+	
+	<td colspan="2">{$list.interest}</td>
+</tr>
+{/foreach}
+{/if}
+
+{if $order_info.transfer_flag eq 2 }
+<tr>
+	<td>转让日</td>
+	<td>{$pay_time}</td>
+	<td>转让结束日</td>
+	<td>{$principal_list.time}</td>
+</tr>
+<tr>
+	<td colspan="2">转让收益</td>
+	<td colspan="2">{$principal_list.principal}</td>
+</tr>
+
+{else}
+<tr>
+	<td>付本付息日</td>
+	<td>{$principal_list.time}</td>
+	<td>付本付息金额</td>
+	<td>{$principal_list.principal}</td>
+</tr>
+{/if}
+</table>
+
+
+
+
+
+
+{include file="pagefooter.htm"}

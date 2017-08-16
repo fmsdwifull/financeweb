@@ -1,0 +1,77 @@
+<!-- $Id: goods_info.htm 17126 2010-04-23 10:30:26Z liuhui $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,selectzone.js,colorselector.js"}
+<!-- start goods form -->
+<div class="tab-div">
+    <!-- tab body -->
+    <div id="tabbody-div">
+      <form enctype="multipart/form-data" action="" method="post" name="theForm"  onsubmit="return check();">
+        <table width="90%" id="general-table" align="center">  
+		  <tr>
+		    <td class="label">账号名称:</td>
+			<td>
+				<input type="text" name="account_name" value="{$fuiou_list.account_name}" id="account_name">
+			</td>
+		  </tr>
+		  
+		  <tr>
+		    <td class="label">账号:</td>
+			<td>
+				<input type="text" name="mchnt_cd" value="{$fuiou_list.mchnt_cd}" id="mchnt_cd">
+			</td>
+		  </tr>
+		  
+		  <tr>
+		    <td class="label">公钥文件:</td>
+			<td>
+				<input type="file" name="pbkey">
+			</td>
+		  </tr>
+		  
+		  <tr>
+		    <td class="label">私钥文件:</td>
+			<td>
+				<input type="file" name="prkey">
+			</td>
+		  </tr>
+		  
+        </table>
+        <div class="button-div">
+          <input type="hidden" name="account_id" value="{$smarty.get.id}" />
+          <input type="submit" value="{$lang.button_submit}" class="button" />
+        </div>
+		{if $act eq 'add'}
+        <input type="hidden" name="act" value="add_fuiou" />
+		{elseif $act eq 'edit'}
+		<input type="hidden" name="act" value="edit_fuiou" />
+		{/if}
+      </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+	
+	
+	function check(){
+		var account_name=document.getElementById('account_name');
+		var mchnt_cd=document.getElementById('mchnt_cd');
+		var str = account_name.value;
+		var str1 = mchnt_cd.value;
+		var reg = /\s/g;
+		var account_name= str.replace(reg, "");
+		var mchnt_cd= str1.replace(reg, "");
+		
+	
+		if(account_name==''){
+			alert('请填写账号名称');
+			return false;
+		}
+		
+		if(mchnt_cd==''){
+			alert('请填写账号');
+			return false;
+		}
+	}
+	
+
+</script>

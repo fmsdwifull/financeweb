@@ -1,0 +1,89 @@
+{if $full_page}
+<!-- $Id: users_list.htm 17053 2010-03-15 06:50:26Z sxc_shop $ -->
+
+
+<!-- start users list -->
+<div class="list-div" id="listDiv">
+{/if}
+<!--用户列表部分-->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<div class="form-div">
+  <form action="team_reserve.php" method="GET">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    业务员姓名：
+	<select name="seller_id">
+		{foreach from = $team_members item = member}
+		<option value="{$member.seller_id}" {if $selected_seller_id eq $member.seller_id}selected{/if}>{$member.seller_name}</option>
+		{/foreach}
+	</select>
+    <input type="submit" value="{$lang.button_search}" class="button" />
+	<input type="button" value="全部" class="button" onclick="window.location.href='team_reserve.php?act=list'"/>
+  </form>
+  
+</div>
+<style>
+.table1{background-color:#eee;width:100%}
+.table1 tr{background-color:#fff}
+</style>
+<script>
+	function modifier_time(id){
+		document.getElementById("fix_time_"+id).style.display="none";
+		document.getElementById("modifier_time_"+id).style.display="";
+	}
+  </script>
+<table cellpadding="3" cellspacing="1" class="table1">
+  <tr>
+    <th>
+      {$lang.record_id}
+    </th>
+    <th>客户姓名</th>
+    <th>手机号码</th>
+	<th>业务员姓名</th>
+    <th>预约产品</th>
+    <th>线下门店</th>
+	<th>预约时间</th>
+	<th>状态</th>
+  <tr>
+
+  {foreach from=$reserve_info item=item}
+  <tr  style="{if $item.is_cancel}color:#ddd{/if}">
+    <td>{$item.reserve_id}</td>
+    <td class="first-cell">{$item.name|escape}</td>
+    <td>{$item.mobile|escape}</td>
+	<td>{$item.seller_name|escape}</td>
+    <td>{$item.goods_name|escape}</td>
+    <td>{$item.store_name}</td>
+		<td>
+		{if $item.year}
+			{$item.year}年{$item.month}月{$item.day}日{$item.hour}时{$item.minute}分
+		{else}
+			未确定预约时间
+		{/if}
+		</td>
+		<td>
+		{if $item.is_cancel}
+		已取消
+		{else}
+			{if $item.is_come}
+			已面谈
+			{else}
+			未面谈
+			{/if}
+		{/if}
+		</td>
+  </tr>
+  {foreachelse}
+  <tr><td class="no-records" colspan="8">{$lang.no_records}</td></tr>
+  {/foreach}
+
+</table>
+
+{if $full_page}
+</div>
+<!-- end users list -->
+
+
+{/literal}
+{include file="pagefooter.htm"}
+{/if}

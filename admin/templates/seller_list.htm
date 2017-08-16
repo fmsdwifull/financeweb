@@ -1,0 +1,37 @@
+
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+<!-- 商品搜索 -->
+
+<!-- 商品列表 -->
+  <!-- start fuiou list -->
+  <div class="list-div" id="listDiv">
+{/if}
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th align="center">编号</th>
+    <th align="center">业务员</th>
+	<th align="center">权限</th>
+    <th align="center">职位</th>
+    <th align="center">操作</th>
+  </tr>
+  {foreach from=$seller_list item=seller}
+  <tr>
+    <td align="center">{$seller.seller_id}</td>
+    <td align="center">{$seller.seller_name}</td>
+    <td align="center">{if $seller.admin_id}√{else}×{/if}</td>
+    <td align="center">{$seller.job}</td>
+    <td align="center"><a href="seller_list.php?act=edit&id={$seller.seller_id}">编辑</a>&nbsp;&nbsp;<a href="javascript:;" onclick="if(confirm('是否删除此条记录')){window.location.href='seller_list.php?act=del&id={$seller.seller_id}';}else{return false;}">删除</a></td>
+  </tr>
+  {foreachelse}
+  <tr><td class="no-records" colspan="10">{$lang.no_records}</td></tr>
+  {/foreach}
+</table>
+<!-- end fuiou list -->
+
+{if $full_page}
+</div>
+{include file="pagefooter.htm"}
+{/if}

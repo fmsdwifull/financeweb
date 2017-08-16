@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.json.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,user.js,transport.js'}
+
+</head>
+<body style="font-size: 14px;background-color: #eee;">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<div class="block block1">
+
+<!--#登录界面 start-->
+<!-- {if $action eq 'login'} -->
+<form name="formLogin" action="user.php" method="post" onSubmit="return userLogin()" id="login_form">
+	<div style="margin-bottom: 60px;margin-top: 60px;">
+		<div style="position: relative;height: 385px;width: 1100px;margin-left: auto;margin-right: auto;">
+			<img src="themes/ecmoban_jumei/images/login_banner.jpg">
+			<div style="position: absolute;right: 0;top: 0;padding: 30px 40px;width: 303px;background-color: #fff;border: 1px solid #e0e0e0;">
+				<div class="clearfix">
+					<span style="color: #888;font-size: 24px;float: left;">登录</span>
+					<span style="margin-top: 10px;float: right;">
+						没有帐号？ 
+						<a href="user.php?act=register" style="color: #1155a2;text-decoration: none;">现在注册</a>
+					</span>
+				</div>
+				<div style="display: table;margin-top: 20px;width: 100%;">
+					<div style="display: table-row;">
+						<div style="padding-top: 15px;padding-bottom: 15px;width: 1%;white-space: nowrap;position: relative;display: table-cell;vertical-align: middle;">
+							帐 号：
+						</div>
+						<div style="padding-top: 15px;padding-bottom: 15px;position: relative;display: table-cell;vertical-align: middle;">
+							<input type="text" name="username" placeholder="请输入手机号码或用户名" value="" style="font-family: 'Microsoft YaHei', 微软雅黑, SimSun, '宋体', Heiti, '黑体';font-size: 14px;width: 100%;height: 44px;box-sizing: border-box;border: 1px solid #d6d6d6;background-color: #fcfcfc;border-radius: 3px;padding: 12px;line-height: 20px;outline: none;">
+						</div>
+					</div>
+					<div style="display: table-row;">
+						<div style="padding-top: 15px;padding-bottom: 15px;width: 1%;white-space: nowrap;position: relative;display: table-cell;vertical-align: middle;">
+							密 码：
+						</div>
+						<div style="padding-top: 15px;padding-bottom: 15px;position: relative;display: table-cell;vertical-align: middle;">
+							<input type="password" name="password" placeholder="请输入密码" value="" style="width: 100%;height: 44px;box-sizing: border-box;border: 1px solid #d6d6d6;background-color: #fcfcfc;border-radius: 3px;padding: 12px;line-height: 20px;outline: none;font-family: 'Microsoft YaHei', 微软雅黑, SimSun, '宋体', Heiti, '黑体';font-size: 14px;">
+						</div>
+					</div>
+					<div style="display: table-row;">
+						<div style="padding-top: 10px;padding-bottom: 5px;width: 1%;white-space: nowrap;position: relative;display: table-cell;vertical-align: middle;">
+						</div>
+						<div style="padding-top: 10px;padding-bottom: 5px;position: relative;display: table-cell;vertical-align: middle;">
+							<label style="float: left;">
+								<input type="checkbox" value="1" name="remember" id="remember">记住密码
+							</label>
+							<a href="user.php?act=get_password" style="color: #888;float: right;">忘记密码？</a>
+						</div>
+					</div>
+				</div>
+				<input type="hidden" name="act" value="act_login" />
+				<input type="hidden" name="back_act" value="{$back_act}" />
+				<button style="background: #f52020;height: 46px;line-height: 46px;font-size: 16px;margin-top: 20px;width: 100%;color: #fff;border: none;border-radius: 3px;padding-left: 50px;padding-right: 50px;cursor: pointer;outline: none;transition: all ease-in-out 0.15s;" onclick="document.getElementById('login_form').submit()">立即登录</button>
+				<div style="width: 100%;height: auto;line-height: 1.5;font-size: 13px;color: #666;text-align: center;background: #fff;position: static;left: 0;vertical-align: middle;border-top: none;top: 15px;margin-top: 20px;bottom: 0;z-index: 190;">
+					<a href="index.php" style="color: #333;text-decoration: none;line-height: 1.5;font-size: 13px;">
+						<span style="margin-right: 5px;">
+							<img src="themes/ecmoban_jumei/images/ico-shield.png" style="position: relative;top: 3px;">
+						</span>
+						<span style="color: #333;line-height: 1.5;font-size: 13px;">账户安全由人保财险承保</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</form>
+</div>
+<!--{/if}-->
+<!--#登录界面 end-->
+
+<!--*会员注册界面 start-->
+    <!--{if $action eq 'register'}-->
+    <!-- {if $shop_reg_closed eq 1} -->
+    <div class="usBox">
+      <div class="usBox_2 clearfix">
+        <div class="f1 f5" align="center">{$lang.shop_register_closed}</div>
+      </div>
+    </div>
+    <!-- {else} -->
+    {insert_scripts files='utils.js'}
+<script src="themes/ecmoban_jumei/js/sms.js"></script>
+
+<div style="margin-bottom: 60px;margin-top: 30px;">
+	<div style="background-color: #fff;border: 1px solid #e0e0e0;width: 1100px;margin-left: auto;margin-right: auto;">
+		<div style="height: 700px;width: 350px;padding-bottom: 50px;margin-left: 50px;float: left;">
+			<div style="display: table;width: 100%;margin-top: 120px;">
+				<div style="display: table-row;">
+					<div style="padding-top: 15px;padding-bottom: 15px;width: 1%;white-space: nowrap;position: relative;display: table-cell;vertical-align: middle;">
+						<span style="color: #e34949;white-space: nowrap;">*</span> 手机号码：
+					</div>
+					<div style="position: relative;line-height: 44px;padding-top: 15px;padding-bottom: 15px;display: table-cell;vertical-align: middle;">
+						<input type="text" style="font-family: 'Microsoft YaHei', 微软雅黑, SimSun, '宋体', Heiti, '黑体';font-size: 14px;width: 100%;height: 44px;box-sizing: border-box;border: 1px solid #d6d6d6;background-color: #fcfcfc;border-radius: 3px;padding: 12px;line-height: 20px;outline: none;" name="mobile" placeholder="请输入手机号码">
+					</div>
+				</div>
+				<div style="display: table-row;">
+					<div style="padding-top: 15px;padding-bottom: 15px;width: 1%;white-space: nowrap;position: relative;display: table-cell;vertical-align: middle;text-align: right;">
+						<span style="color: #e34949;white-space: nowrap;text-align: right;">*</span> 验证码：
+					</div>
+					<div style="position: relative;line-height: 44px;padding-top: 15px;padding-bottom: 15px;display: table-cell;vertical-align: middle;">
+						<input style="width: 149px;font-family: 'Microsoft YaHei', 微软雅黑, SimSun, '宋体', Heiti, '黑体';font-size: 14px;height: 44px;box-sizing: border-box;border: 1px solid #d6d6d6;background-color: #fcfcfc;border-radius: 3px;padding: 12px;line-height: 20px;outline: none;float: left;" type="text" placeholder="输入验证码" name="seccode">
+						<button style="width: 108px;height: 42px;line-height: 42px;color: #ed8a32;background: #f8eacb;border: 1px solid #f8eacb;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;cursor: pointer;outline: none;transition: all ease-in-out 0.15s;float: right;">发送验证码</button>
+					</div>
+				</div>
+				<div style="display: table-row;">
+					<div style="padding-top: 15px;padding-bottom: 15px;width: 1%;white-space: nowrap;position: relative;display: table-cell;vertical-align: middle;">
+						<span style="color: #e34949;white-space: nowrap;text-align: right;">*</span>
+						 输入密码：
+					</div>
+					<div style="position: relative;line-height: 44px;padding-top: 15px;padding-bottom: 15px;display: table-cell;vertical-align: middle;">
+						<input style="font-family: 'Microsoft YaHei', 微软雅黑, SimSun, '宋体', Heiti, '黑体';font-size: 14px;width: 100%;height: 44px;box-sizing: border-box;border: 1px solid #d6d6d6;background-color: #fcfcfc;border-radius: 3px;padding: 12px;line-height: 20px;outline: none;">
+					</div>
+				</div>
+				<div style="display: table-row;">
+					<div style="padding-top: 15px;padding-bottom: 15px;width: 1%;white-space: nowrap;position: relative;display: table-cell;vertical-align: middle;">
+						<span style="color: #e34949;white-space: nowrap;">*</span> 重复密码：
+					</div>
+					<div style="position: relative;line-height: 44px;padding-top: 15px;padding-bottom: 15px;display: table-cell;vertical-align: middle;">
+						<input type="password" style="width: 100%;height: 44px;box-sizing: border-box;border: 1px solid #d6d6d6;background-color: #fcfcfc;border-radius: 3px;padding: 12px;line-height: 20px;outline: none;font-family: 'Microsoft YaHei', 微软雅黑, SimSun, '宋体', Heiti, '黑体';font-size: 14px;	" placeholder="再次输入密码" name="password2">
+					</div>
+				</div>
+				<div style="display: table-row;">
+					<div style="padding-top: 0;padding-bottom: 15px;line-height: 1;width: 1%;white-space: nowrap;position: relative;display: table-cell;vertical-align: middle;">
+					</div>
+				
+					<div style="display: table-row;padding-top: 0;padding-bottom: 15px;line-height: 1;position: relative;display: table-cell;vertical-align: middle;position: relative;">
+						<label style="width:200px">
+							<input type="checkbox" id="xy">我同意《	<a href="" target="_blank" style="color: #1155a2;text-decoration: none;line-height: 1;">浙金网用户协议</a>
+								》
+						</label>
+					</div>
+				</div>
+				<div style="display: table-row;">
+					<div style="padding-top: 0;padding-bottom: 15px;line-height: 1;width: 1%;white-space: nowrap;position: relative;display: table-cell;vertical-align: middle;">
+					</div>
+					<div style="padding-top: 0;padding-bottom: 15px;line-height: 1;position: relative;	display: table-cell;vertical-align: middle;">
+						<button style="background-image: none;box-shadow: none;height: 40px;line-height: 40px;font-size: 16px;background: #f75151;width: 100%;color: #fff;border: none;border-radius: 3px;padding-left: 50px;padding-right: 50px;cursor: pointer;outline: none;transition: all ease-in-out 0.15s;" disabled="false" id="register_btn">立即注册</button>
+					</div>
+				</div>
+			</div>
+
+		
+			<div style="position: static;border-top: none;background: transparent;width: 100%;height: 31px;line-height: 31px;font-size: 14px;color: #333;text-align: center;left: 0;bottom: 0;z-index: 190;vertical-align: middle;">
+				<a href="index.php" style="color: #333;text-decoration: none;line-height: 31px;font-size: 14px;text-align: center;">
+					<span style="margin-right: 5px;">
+						<img src="themes/ecmoban_jumei/images/ico-shield.png" style="position: relative;top: 3px;">
+					</span>
+					<span>账户安全由人保财险承保</span>
+				</a>
+			</div>
+		</div>
+		<div style="position: relative;width: 640px;padding-top: 180px;text-align: center;float: right;">
+			<img src="themes/ecmoban_jumei/images/register_banner_30.png" style="text-align: center;">
+		</div>
+		
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+
+
+<div class="usBox" style="background-color:#f6f6f6">
+  <div class="usBox_2 clearfix" style="width:990px; background-color:#FFF">
+   <div class="regtitle"></div>
+    <form action="user.php" method="post" name="formUser" onsubmit="return register2();">
+    <input type="hidden" name="flag" id="flag" value="register" />
+      <table width="100%"  border="0" align="left" cellpadding="5" cellspacing="3">
+      	<tr>
+      	<td width="13%"></td>
+      	<td width="87%">我们将发送验证码到你的手机</td>
+      	</tr>
+        <tr>
+          <td width="13%" align="right" style="font-size:14px; color:#999"><span id="username_notice" style="color:#FF0000"> * </span>手机号:</td>
+          <td width="87%">
+          <input placeholder="请输入手机号码" class="inputBg" name="mobile" id="mobile_phone" type="text" style="height:35px;" />  
+          </td>
+        </tr>
+        <tr>
+          <td width="13%" align="right" style="font-size:14px; color:#999"><span id="username_notice" style="color:#FF0000"> * </span>验证码:</td>
+          <td width="87%">
+         	<input placeholder="请输入验证码" class="inputBg" name="mobile_code" id="mobile_code" type="text" style="height:35px;"/>
+         	 <input id="zphone" name="sendsms" type="button" value="获取手机验证码" onClick="sendSms();" class="c-btn3" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right" style="font-size:14px; color:#999"><span id="username_notice" style="color:#FF0000"> * </span>{$lang.label_password}</td>
+          <td>
+          <input name="password" type="password" id="password1"  class="inputBg" style="width:276px;height:35px;" />
+          </td>
+        </tr>      
+         <tr>
+          <td align="right" style="font-size:14px; color:#999"><span id="username_notice" style="color:#FF0000"> * </span>确认密码</td>
+          <td>
+          <input name="" type="password" id="password2"  class="inputBg" style="width:276px;height:35px;" />
+          </td>
+        </tr>        
+        <tr>
+          <td>&nbsp;</td>
+          <td><label>
+            <input name="agreement" type="checkbox" value="1" checked="checked" />
+            {$lang.agreement}</label></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td align="left">
+          <input name="act" type="hidden" value="act_register" >
+          <input name="enabled_sms" type="hidden" value="1" />
+          <input type="hidden" name="back_act" value="{$back_act}" />
+          <input name="Submit" type="submit" value="立即注册" class="us_Submit_reg"  style="border: 1px solid #e85356;    display: block;    width: 302px;    background: #e4393c;    height: 38px;    line-height: 31px;    color: #fff;    font-size: 20px;    font-family: '\5fae\8f6f\96c5\9ed1';">
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td class="actionSub">
+          <a href="user.php?act=login">{$lang.want_login}</a>
+          <a href="user.php?act=get_password" style="padding-left:8%">{$lang.forgot_password}</a>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+<!--{/if}-->
+<!--{/if}-->
+<!--#会员注册界面 end-->
+
+<!--*找回密码界面 -->
+    <!--{if $action eq 'get_password'} -->
+    {insert_scripts files='utils.js'}
+    <script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+    </script>
+<div class="usBox">
+  <div class="usBox_2 clearfix">
+    <form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
+        <br />
+        <table width="70%" border="0" align="center">
+          <tr>
+            <td colspan="2" align="center"><strong>{$lang.username_and_email}</strong></td>
+          </tr>
+          <tr>
+            <td width="29%" align="right">{$lang.username}</td>
+            <td width="61%"><input name="user_name" type="text" size="30" class="inputBg" /></td>
+          </tr>
+          <tr>
+            <td align="right">{$lang.email}</td>
+            <td><input name="email" type="text" size="30" class="inputBg" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="hidden" name="act" value="send_pwd_email" />
+              <input type="submit" name="submit" value="{$lang.submit}" class="bnt_blue" style="border:none;" />
+              <input name="button" type="button" onclick="history.back()" value="{$lang.back_page_up}" style="border:none;" class="bnt_blue_1" />
+	    </td>
+          </tr>
+        </table>
+        <br />
+      </form>
+  </div>
+</div>
+<!--{/if}-->
+
+<!--*通过问题找回密码的确认找回账号界面 -->
+    <!--{if $action eq 'qpassword_name'} -->
+<div class="usBox">
+  <div class="usBox_2 clearfix">
+    <form action="user.php" method="post">
+        <br />
+        <table width="70%" border="0" align="center">
+          <tr>
+            <td colspan="2" align="center"><strong>{$lang.get_question_username}</strong></td>
+          </tr>
+          <tr>
+            <td width="29%" align="right">{$lang.username}</td>
+            <td width="61%"><input name="user_name" type="text" size="30" class="inputBg" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="hidden" name="act" value="get_passwd_question" />
+              <input type="submit" name="submit" value="{$lang.submit}" class="bnt_blue" style="border:none;" />
+              <input name="button" type="button" onclick="history.back()" value="{$lang.back_page_up}" style="border:none;" class="bnt_blue_1" />
+	    </td>
+          </tr>
+        </table>
+        <br />
+      </form>
+  </div>
+</div>
+<!--{/if}-->
+
+<!--*根据输入账号显示密码问题界面 -->
+    <!--{if $action eq 'get_passwd_question'} -->
+<div class="usBox">
+  <div class="usBox_2 clearfix">
+    <form action="user.php" method="post">
+        <br />
+        <table width="70%" border="0" align="center">
+          <tr>
+            <td colspan="2" align="center"><strong>{$lang.input_answer}</strong></td>
+          </tr>
+          <tr>
+            <td width="29%" align="right">{$lang.passwd_question}：</td>
+            <td width="61%">{$passwd_question}</td>
+          </tr>
+          <tr>
+            <td align="right">{$lang.passwd_answer}：</td>
+            <td><input name="passwd_answer" type="text" size="20" class="inputBg" /></td>
+          </tr>          <!-- 判断是否启用验证码{if $enabled_captcha} -->
+          <tr>
+            <td align="right">{$lang.comment_captcha}</td>
+            <td><input type="text" size="8" name="captcha" class="inputBg" />
+            <img src="captcha.php?is_login=1&{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer;" onClick="this.src='captcha.php?is_login=1&'+Math.random()" /> </td>
+          </tr>
+          <!--{/if}-->
+          
+          <tr>
+            <td> </td>
+<td><input type="hidden" name="act" value="check_answer" />
+              <input type="submit" name="submit" value="{$lang.submit}" class="bnt_blue" style="border:none;" />
+              <input name="button" type="button" onclick="history.back()" value="{$lang.back_page_up}" style="border:none;" class="bnt_blue_1" />
+	    </td>
+          </tr>
+        </table>
+        <br />
+      </form>
+  </div>
+</div>
+<!--{/if}-->
+
+<!-- {if $action eq 'reset_password'} -->
+    <script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+    </script>
+<div class="usBox">
+  <div class="usBox_2 clearfix">
+    <form action="user.php" method="post" name="getPassword2" onSubmit="return submitPwd()">
+      <br />
+      <table width="80%" border="0" align="center">
+        <tr>
+          <td>{$lang.new_password}</td>
+          <td><input name="new_password" type="password" size="25" class="inputBg" /></td>
+        </tr>
+        <tr>
+          <td>{$lang.confirm_password}:</td>
+          <td><input name="confirm_password" type="password" size="25"  class="inputBg"/></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="hidden" name="act" value="act_edit_password" />
+            <input type="hidden" name="uid" value="{$uid}" />
+            <input type="hidden" name="code" value="{$code}" />
+            <input type="submit" name="submit" value="{$lang.confirm_submit}" />
+          </td>
+        </tr>
+      </table>
+      <br />
+    </form>
+  </div>
+</div>
+
+<!--{/if}-->
+<!--#找回密码界面 end-->
+</div>
+<div class="blank"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+{foreach from=$lang.passport_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var username_exist = "{$lang.username_exist}";
+</script>
+</html>

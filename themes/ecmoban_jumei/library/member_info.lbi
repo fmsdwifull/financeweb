@@ -1,0 +1,12 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{if $user_info}
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#999">|</span>&nbsp;&nbsp;&nbsp;&nbsp;<a id="user_have" href="user.html" style="font-family:微软雅黑" >{$user_info.username}</a> |
+ <a href="user-logout.html"  style="color:#999;font-family:微软雅黑">{$lang.user_logout}</a> |
+ 
+  {else} 
+  
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#999">|</span>&nbsp;&nbsp;&nbsp;&nbsp;<a id="user_haveno" href="user.html" style="color:#999;font-family:微软雅黑">登录</a> &nbsp;&nbsp;&nbsp;&nbsp;<a  href="user-register.html" style="color:#999;font-family:微软雅黑">注册</a>
+ 
+ {/if}

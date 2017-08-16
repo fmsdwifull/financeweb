@@ -1,0 +1,42 @@
+<!-- $Id: goods_list.htm 17126 2010-04-23 10:30:26Z liuhui $ -->
+
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+<!-- 商品搜索 -->
+
+<!-- 商品列表 -->
+  <!-- start goods list -->
+  <div class="list-div" id="listDiv">
+{/if}
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th align="center">编号</th>
+    <th align="center">项目名称</th>
+	<th align="center">项目简称</th>
+    <th align="center">公司名称</th>
+    <th align="center">法人姓名</th>
+    <th align="center">注册资金</th>
+    <th align="center">操作</th>
+  </tr>
+  {foreach from=$project_list item=project}
+  <tr>
+    <td align="center">{$project.project_id}</td>
+    <td align="center">{$project.project_name|escape:html}</td>
+    <td align="center">{$project.project_short}</td>
+    <td align="center">{$project.owner_name}</td>
+    <td align="center">{$project.owner_faren}</td>
+    <td align="center">{$project.owner_money}</td>
+    <td align="center"><a href="project.php?act=edit&project_id={$project.project_id}">编辑</a></td>
+  </tr>
+  {foreachelse}
+  <tr><td class="no-records" colspan="10">{$lang.no_records}</td></tr>
+  {/foreach}
+</table>
+<!-- end goods list -->
+
+{if $full_page}
+</div>
+{include file="pagefooter.htm"}
+{/if}

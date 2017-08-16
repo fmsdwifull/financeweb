@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<!-- {if $cat_style} -->
+<link href="{$cat_style}" rel="stylesheet" type="text/css" />
+<!-- {/if} -->
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,global.js,compare.js'}
+</head>
+<body style="background-color:#ecedee;font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', '微软雅黑', SimSun, '宋体', Heiti, '黑体', sans-serif;font-size:16px">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<style>
+	.box_shadow4{background-position: left top;}
+	.box_shadow4:hover{background-position: left bottom;}
+	.box_shadow5{background-position: right top;}
+	.box_shadow5:hover{background-position: right bottom;}
+	.box_shadow6{height:auto}
+	.box_shadow7{height:0}
+</style>
+<style>
+	.select_a{display: inline-block;padding-left: 20px;padding-right: 20px;height: 27px;line-height: 27px;border-radius: 3px;margin-left: 10px;}
+	.active{background-color: #d01a0b;color: #fff;}
+</style>
+<script>
+	function click_button(){
+		if (document.getElementById("button1").className=="box_shadow4"){
+			document.getElementById("button1").className="box_shadow5";
+			document.getElementById("content1").className="box_shadow7";
+		}else{
+			document.getElementById("button1").className="box_shadow4";
+			document.getElementById("content1").className="box_shadow6";
+		}
+	}
+</script>
+<div class="block clearfix" style="background-color:#ecedee;">
+	<div style= "height: 50px;line-height: 50px;font-size: 14px;color: #666;">
+		<a href="index.php" style="color:#666">政金网</a> &nbsp; &gt;&nbsp;&nbsp; 理财频道
+	</div>
+	<div style="position: relative;background-color: #fff;">
+		<button style="position: absolute;top: -26px;right: 0;background-color: #fff;width: 45px;height: 26px;border: none;background-image: url(themes/ecmoban_jumei/images/btn-extend-bg.png);background-repeat: no-repeat;cursor: pointer;outline: none;transition: all ease-in-out 0.15s;" class="box_shadow4" onclick="click_button()" id="button1"></button>
+		<div style="overflow:hidden;transition: all ease-in-out 0.15s;" class="box_shadow6" id="content1">
+		<dl style="padding: 20px;">
+			<dt style="line-height: 27px;float: left;color:#111">类型：</dt>
+			<dd style="height:45px">
+				<a href="{$url_notype}" class="{if $url_type eq 0}active{/if} select_a">不限</a>
+				<a href="{$url_notype}&type=1" class="{if $url_type eq 1}active{/if} select_a">投资计划</a>
+				<a href="{$url_notype}&type=2" class="{if $url_type eq 2}active{/if} select_a">债权转让</a>
+				<a href="{$url_notype}&type=3" class="{if $url_type eq 3}active{/if} select_a">应收账款转让</a>
+				<a href="{$url_notype}&type=4" class="{if $url_type eq 4}active{/if} select_a">收益权转让</a>
+				<a href="{$url_notype}&type=5" class="{if $url_type eq 5}active{/if} select_a">其它</a>
+			</dd>
+			<dt style="line-height: 27px;float: left;color:#111">期限：</dt>
+			<dd style="height:45px">
+				<a href="{$url_noperiod}" class="{if $url_period eq 0}active{/if} select_a">不限</a>
+				<a href="{$url_noperiod}&period=1" class="{if $url_period eq 1}active{/if} select_a">半年</a>
+				<a href="{$url_noperiod}&period=2" class="{if $url_period eq 2}active{/if} select_a">一年</a>
+				<a href="{$url_noperiod}&period=3" class="{if $url_period eq 3}active{/if} select_a">一年半</a>
+				<a href="{$url_noperiod}&period=4" class="{if $url_period eq 4}active{/if} select_a">2年</a>
+				<a href="{$url_noperiod}&period=5" class="{if $url_period eq 5}active{/if} select_a">2年以上</a>
+			</dd>
+			<dt style="line-height: 27px;float: left;color:#111">状态：</dt>
+			<dd style="height:45px">
+				<a href="{$url_nostatus}" class="{if $url_status eq 0}active{/if} select_a">不限</a>
+				<a href="{$url_nostatus}&status=1" class="{if $url_status eq 1}active{/if} select_a">即将发行</a>
+				<a href="{$url_nostatus}&status=2" class="{if $url_status eq 2}active{/if} select_a">正在发行</a>
+				<a href="{$url_nostatus}&status=3" class="{if $url_status eq 3}active{/if} select_a">已截止</a>
+				<a href="{$url_nostatus}&status=4" class="{if $url_status eq 4}active{/if} select_a">已售罄</a>
+				<a href="{$url_nostatus}&status=5" class="{if $url_status eq 5}active{/if} select_a">已结清</a>
+			</dd>
+		</dl>
+		</div>
+	</div>
+	<div style="margin-top: 30px;margin-bottom: 20px;">
+		<h2 style="height: 60px;line-height: 60px;font-size: 30px;font-weight: normal;">
+			项目列表
+			<ul style="font-size: 18px;color: #111;float: right;list-style: none;">
+				<li style="float: left;line-height: 25px;text-align: left;padding-left: 30px;padding-right: 30px;position: relative;">
+					<p style="font-size: 14px;color: #888;">累积成交总额</p>
+					<p>1580707800.74 元</p>
+				</li>
+				<li style="padding-right: 0;float: left;line-height: 25px;text-align: left;padding-left: 30px;position: relative;">
+					<p style="font-size: 14px;color: #888;">用户收益</p>
+					<p>46450570&nbsp;元</p>
+				</li>
+			</ul>
+		</h2>
+		<style>
+			.box_shadow9{background-color: #fff;}
+			.box_shadow9:hover{background-color: #fbfbea;}
+			.box_shadow9:hover .box_shadow8:hover{background-color: #d01a0b;border-color: #d01a0b;color: #fff;}
+			.box_shadow9:hover .box_shadow8 {background-color: #f3301f;border-color: #f3301f;color: #fff;}
+			.box_shadow8{color: #d01a0b;background: #fff;border: 1px solid #d5d5d5;}
+			
+		</style>
+		<div style="background-color: #ededed;">
+		<!--{foreach name=goods_list from=$goods_list item=goods}-->
+		<!-- {if $goods.goods_status eq 0} -->	
+			<div style="margin-top: 20px;position: relative;" class="box_shadow9">
+				<table style="width: 100%;position: relative;z-index: 1;border-collapse: collapse;border-spacing: 0;color:#bbb">
+					<tbody>
+						<tr>
+							<td style="padding-left: 15px;width:20%;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<a href="{$goods.url}" style="text-decoration: none;color:#bbb">{$goods.goods_name}</a>
+								</p>
+								<p style="font-size: 14px;">金额<em>{$goods.goods_total_number}元</em>
+							</td>
+							<td style="width:13%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 18px;">
+									<strong style="font-size: 30px;">{$goods.goods_interest_rate}</strong>%
+								</p>
+								<p style="font-size: 14px;">
+									预期年化收益率
+								</p>
+							</td>
+							<td style="width:11%;padding: 0 15px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_min_buy}</strong>元
+								</p>
+								<p style="font-size: 14px;">
+									最低投资金额
+								</p>
+							</td>
+							<td style="width:9%;padding: 0 15px;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_period}</strong>天
+								</p>
+								<p style="font-size: 14px;">
+									计划期限
+								</p>
+							</td>
+							<td style="padding: 0 15px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_level}</strong>
+								</p>
+								<p style="font-size: 14px;">参考评级</p>
+							</td>
+							<td style="width:17%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 14px;">
+									剩余金额：<em style="font-style: normal;">{$goods.goods_rest_number}元</em>
+								</p>
+								<p style="font-size: 14px;">
+									距离开始时间：
+									<em style="font-style: normal;">{$goods.goods_waiting_hour}</em>
+									小时
+									<em style="font-style: normal;">{$goods.goods_waiting_minute}</em>
+									分
+								</p>
+							</td>
+							<td style="width:14%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<a href="{$goods.url}" style="width: 120px;height: 45px;line-height: 45px;text-align: center;font-size: 16px;border-radius: 3px;padding: 0;display: inline-block;background: #c5c9cc;color:#fff;border: 1px solid #c5c9cc;">未开始</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		<!--{/if}-->
+		<!-- {if $goods.goods_status eq 1} -->	
+			<div style="margin-top: 20px;position: relative;" class="box_shadow9">
+				<table style="width: 100%;position: relative;z-index: 1;border-collapse: collapse;border-spacing: 0;">
+					<tbody>
+						<tr>
+							<td style="padding-left: 15px;width:20%;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<a href="{$goods.url}" style="color: #333;text-decoration: none;">{$goods.goods_name}</a>
+								</p>
+								<p style="font-size: 14px;">金额<em style="color:#e34949;">{$goods.goods_total_number}元</em>
+							</td>
+							<td style="width:13%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;color: #e34949;font-size: 18px;">
+									<strong style="font-size: 30px;">{$goods.goods_interest_rate}</strong>%
+								</p>
+								<p style="color: #666;font-size: 14px;">
+									预期年化收益率
+								</p>
+							</td>
+							<td style="width:11%;padding: 0 15px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_min_buy}</strong>元
+								</p>
+								<p style="color: #666;font-size: 14px;">
+									最低投资金额
+								</p>
+							</td>
+							<td style="width:9%;padding: 0 15px;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_period}</strong>天
+								</p>
+								<p style="color: #666;font-size: 14px;">
+									计划期限
+								</p>
+							</td>
+							<td style="padding: 0 15px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_level}</strong>
+								</p>
+								<p style="color: #666;font-size: 14px;">参考评级</p>
+							</td>
+							<td style="width:17%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 14px;">
+									剩余金额：<em style="color: #e34949;font-style: normal;">{$goods.goods_rest_number}元</em>
+								</p>
+								<p style="font-size: 14px;">
+									剩余时间：
+									<em style="color: #e34949;font-style: normal;">{$goods.goods_rest_hour}</em>
+									小时
+									<em style="color: #e34949;font-style: normal;">{$goods.goods_rest_minute}</em>
+									分
+								</p>
+							</td>
+							<td style="width:14%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<a href="{$goods.url}" style="width: 120px;height: 45px;line-height: 45px;text-align: center;font-size: 16px;border-radius: 3px;padding: 0;display: inline-block;" class="box_shadow8">立即投资</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		<!--{/if}-->
+		<!-- {if $goods.goods_status eq 2} -->	
+			<div style="margin-top: 20px;position: relative;" class="box_shadow9">
+				<table style="width: 100%;position: relative;z-index: 1;border-collapse: collapse;border-spacing: 0;color:#bbb">
+					<tbody>
+						<tr>
+							<td style="padding-left: 15px;width:20%;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<a href="{$goods.url}" style="text-decoration: none;color:#bbb">{$goods.goods_name}</a>
+								</p>
+								<p style="font-size: 14px;">金额<em>{$goods.goods_total_number}元</em>
+							</td>
+							<td style="width:13%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 18px;">
+									<strong style="font-size: 30px;">{$goods.goods_interest_rate}</strong>%
+								</p>
+								<p style="font-size: 14px;">
+									预期年化收益率
+								</p>
+							</td>
+							<td style="width:11%;padding: 0 15px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_min_buy}</strong>元
+								</p>
+								<p style="font-size: 14px;">
+									最低投资金额
+								</p>
+							</td>
+							<td style="width:9%;padding: 0 15px;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_period}</strong>天
+								</p>
+								<p style="font-size: 14px;">
+									计划期限
+								</p>
+							</td>
+							<td style="padding: 0 15px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_level}</strong>
+								</p>
+								<p style="font-size: 14px;">参考评级</p>
+							</td>
+							<td style="width:17%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 14px;">
+									剩余金额：<em style="font-style: normal;">{$goods.goods_rest_number}元</em>
+								</p>
+								<p style="font-size: 14px;">
+									剩余时间：
+									<em style="font-style: normal;">{$goods.goods_rest_hour}</em>
+									小时
+									<em style="font-style: normal;">{$goods.goods_rest_minute}</em>
+									分
+								</p>
+							</td>
+							<td style="width:14%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<a href="{$goods.url}" style="width: 120px;height: 45px;line-height: 45px;text-align: center;font-size: 16px;border-radius: 3px;padding: 0;display: inline-block;background: #c5c9cc;color:#fff;border: 1px solid #c5c9cc;">已售罄</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div style="width: 100px;height: 100%;background: url(themes/ecmoban_jumei/images/mf-p.png) no-repeat center center;position: absolute;top: 0;right: 110px;z-index: 200;box-sizing: border-box;">
+				</div>
+			</div>
+		<!--{/if}-->
+		<!-- {if $goods.goods_status eq 3} -->	
+			<div style="margin-top: 20px;position: relative;" class="box_shadow9">
+				<table style="width: 100%;position: relative;z-index: 1;border-collapse: collapse;border-spacing: 0;color:#bbb">
+					<tbody>
+						<tr>
+							<td style="padding-left: 15px;width:20%;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<a href="{$goods.url}" style="text-decoration: none;color:#bbb">{$goods.goods_name}</a>
+								</p>
+								<p style="font-size: 14px;">金额<em>{$goods.goods_total_number}元</em>
+							</td>
+							<td style="width:13%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 18px;">
+									<strong style="font-size: 30px;">{$goods.goods_interest_rate}</strong>%
+								</p>
+								<p style="font-size: 14px;">
+									预期年化收益率
+								</p>
+							</td>
+							<td style="width:11%;padding: 0 15px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_min_buy}</strong>元
+								</p>
+								<p style="font-size: 14px;">
+									最低投资金额
+								</p>
+							</td>
+							<td style="width:9%;padding: 0 15px;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_period}</strong>天
+								</p>
+								<p style="font-size: 14px;">
+									计划期限
+								</p>
+							</td>
+							<td style="padding: 0 15px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_level}</strong>
+								</p>
+								<p style="font-size: 14px;">参考评级</p>
+							</td>
+							<td style="width:17%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 14px;">
+									剩余金额：<em style="font-style: normal;">{$goods.goods_rest_number}元</em>
+								</p>
+								<p style="font-size: 14px;">
+									剩余时间：
+									<em style="font-style: normal;">0</em>
+									小时
+									<em style="font-style: normal;">0</em>
+									分
+								</p>
+							</td>
+							<td style="width:14%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<a href="{$goods.url}" style="width: 120px;height: 45px;line-height: 45px;text-align: center;font-size: 16px;border-radius: 3px;padding: 0;display: inline-block;background: #c5c9cc;color:#fff;border: 1px solid #c5c9cc;">已截止</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div style="width: 100px;height: 100%;background: url(themes/ecmoban_jumei/images/stop2.png) no-repeat center center;position: absolute;top: 0;right: 110px;z-index: 200;box-sizing: border-box;">
+				</div>
+			</div>
+		<!--{/if}-->
+		<!-- {if $goods.goods_status eq 4} -->	
+			<div style="margin-top: 20px;position: relative;" class="box_shadow9">
+				<table style="width: 100%;position: relative;z-index: 1;border-collapse: collapse;border-spacing: 0;color:#bbb">
+					<tbody>
+						<tr>
+							<td style="padding-left: 15px;width:20%;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<a href="{$goods.url}" style="text-decoration: none;color:#bbb">{$goods.goods_name}</a>
+								</p>
+								<p style="font-size: 14px;">金额<em>{$goods.goods_total_number}元</em>
+							</td>
+							<td style="width:13%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 18px;">
+									<strong style="font-size: 30px;">{$goods.goods_interest_rate}</strong>%
+								</p>
+								<p style="font-size: 14px;">
+									预期年化收益率
+								</p>
+							</td>
+							<td style="width:11%;padding: 0 15px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_min_buy}</strong>元
+								</p>
+								<p style="font-size: 14px;">
+									最低投资金额
+								</p>
+							</td>
+							<td style="width:9%;padding: 0 15px;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_period}</strong>天
+								</p>
+								<p style="font-size: 14px;">
+									计划期限
+								</p>
+							</td>
+							<td style="padding: 0 15px;position: relative;">
+								<p style="line-height: 36px;font-size: 20px;">
+									<strong>{$goods.goods_level}</strong>
+								</p>
+								<p style="font-size: 14px;">参考评级</p>
+							</td>
+							<td style="width:17%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<p style="line-height: 36px;font-size: 14px;">
+									剩余金额：<em style="font-style: normal;">{$goods.goods_rest_number}元</em>
+								</p>
+								<p style="font-size: 14px;">
+									剩余时间：
+									<em style="font-style: normal;">0</em>
+									小时
+									<em style="font-style: normal;">0</em>
+									分
+								</p>
+							</td>
+							<td style="width:14%;padding-left: 15px;padding-right: 15px;padding-top: 22px;padding-bottom: 27px;position: relative;">
+								<a href="{$goods.url}" style="width: 120px;height: 45px;line-height: 45px;text-align: center;font-size: 16px;border-radius: 3px;padding: 0;display: inline-block;background: #c5c9cc;color:#fff;border: 1px solid #c5c9cc;">已结清</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		<!--{/if}-->
+		<!--{/foreach}-->
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	
+<div style="width:100%;height:30px"></div>
+</div>
+<div class="blank5"></div>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+<script type="text/javascript">
+window.onload = function()
+{
+  Compare.init();
+  fixpng();
+}
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+
+
+<!-- 产品列表end -->
+
+
+<!-- #BeginLibraryItem "/library/pages.lbi" -->
+
+<!--翻页 start-->
+<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get">
+<!-- {if $pager.styleid eq 0 } -->
+<div id="pager">
+  {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <span> <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span>
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    <select name="page" id="page" onchange="selectPage(this)">
+    {html_options options=$pager.array selected=$pager.page}
+    </select>
+</div>
+<!--{else}-->
+
+<!--翻页 start-->
+ <div id="pager" class="pagebar">
+  <span class="f_l " style="margin-right:10px;">{$lang.pager_1}<b>{$pager.record_count}</b> {$lang.pager_2}</span>
+  <!-- {if $pager.page_first} --><a href="{$pager.page_first}">{$lang.page_first} ...</a><!-- {/if} -->
+  <!-- {if $pager.page_prev} --><a class="prev" href="{$pager.page_prev}">{$lang.page_prev}</a><!-- {/if} -->
+  <!-- {if $pager.page_count neq 1} -->
+    <!--{foreach from=$pager.page_number key=key item=item}-->
+      <!-- {if $pager.page eq $key} -->
+      <span class="page_now">{$key}</span>
+      <!-- {else} -->
+      <a href="{$item}">[{$key}]</a>
+      <!-- {/if} -->
+    <!--{/foreach}-->
+  <!-- {/if} -->
+
+  <!-- {if $pager.page_next} --><a class="next" href="{$pager.page_next}">{$lang.page_next}</a><!-- {/if} -->
+  <!-- {if $pager.page_last} --><a class="last" href="{$pager.page_last}">...{$lang.page_last}</a><!-- {/if} -->
+  <!-- {if $pager.page_kbd} -->
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    <kbd style="float:left; margin-left:8px; position:relative; bottom:3px;"><input type="text" name="page" onkeydown="if(event.keyCode==13)selectPage(this)" size="3" class="B_blue" /></kbd>
+    <!-- {/if} -->
+</div>
+<!--翻页 END-->
+
+<!-- {/if} -->
+</form>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+
+  </div>  
+  <!--right end-->
+</div>
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

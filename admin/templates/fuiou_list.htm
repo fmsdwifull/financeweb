@@ -1,0 +1,39 @@
+
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+<!-- 商品搜索 -->
+
+<!-- 商品列表 -->
+  <!-- start fuiou list -->
+  <div class="list-div" id="listDiv">
+{/if}
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th align="center">编号</th>
+    <th align="center">用户名</th>
+	<th align="center">账号</th>
+    <th align="center">公钥</th>
+    <th align="center">私钥</th>
+    <th align="center">操作</th>
+  </tr>
+  {foreach from=$fuiou_list item=fuiou}
+  <tr>
+    <td align="center">{$fuiou.account_id}</td>
+    <td align="center">{$fuiou.account_name|escape:html}</td>
+    <td align="center">{$fuiou.mchnt_cd}</td>
+    <td align="center">{if $fuiou.pbkey}√{else}×{/if}</td>
+    <td align="center">{if $fuiou.prkey}√{else}×{/if}</td>
+    <td align="center"><a href="fuiou_list.php?act=edit&id={$fuiou.account_id}">编辑</a>&nbsp;&nbsp;<a href="javascript:;" onclick="if(confirm('是否删除此条记录')){window.location.href='fuiou_list.php?act=del&id={$fuiou.account_id}';}else{return false;}">删除</a></td>
+  </tr>
+  {foreachelse}
+  <tr><td class="no-records" colspan="10">{$lang.no_records}</td></tr>
+  {/foreach}
+</table>
+<!-- end fuiou list -->
+
+{if $full_page}
+</div>
+{include file="pagefooter.htm"}
+{/if}

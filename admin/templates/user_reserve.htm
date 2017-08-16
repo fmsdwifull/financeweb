@@ -1,0 +1,151 @@
+{if $full_page}
+<!-- $Id: users_list.htm 17053 2010-03-15 06:50:26Z sxc_shop $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+<!-- start users list -->
+<div class="list-div" id="listDiv">
+{/if}
+<!--用户列表部分-->
+<style>
+.table1{background-color:#eee;width:100%}
+.table1 tr{background-color:#fff}
+</style>
+{if $seller_id}
+<table cellpadding="3" cellspacing="1" class="table1">
+  <tr>
+    <th>
+      {$lang.record_id}
+    </th>
+    <th>客户姓名</th>
+    <th>手机号码</th>
+	<th>业务员姓名</th>
+    <th>预约产品</th>
+    <th>线下门店</th>
+	<th>预约时间</th>
+	<th>{if $seller_id neq 1}操作{else}状态{/if}</th>
+  <tr>
+  {foreach from=$reserve_info item=item}
+  <tr  style="{if $item.is_cancel}color:#ddd{/if}">
+    <td>{$item.reserve_id}</td>
+    <td class="first-cell">{$item.name|escape}</td>
+    <td>{$item.mobile|escape}</td>
+	<td>
+	{if !$item.is_cancel}
+		{if $item.seller_name}
+		{$item.seller_name|escape}
+		{else}
+		<form method="POST" action="user_reserve.php?act=submit_seller" style="margin-bottom:0">
+		<input name="id" type="hidden" value="{$item.reserve_id}">
+		<select name="seller_id">
+			<option value=""></option>
+			{foreach from=$seller_list item=seller}
+			<option value="{$seller.seller_id}">{$seller.seller_name}</option>
+			{/foreach}
+		</select>
+		<input type ="submit" value="提交">
+		</form>
+		{/if}
+	{/if}
+	</td>
+    <td>{$item.goods_name|escape}</td>
+    <td>{$item.store_name}</td>
+	{if $seller_id eq 1}
+		<td>
+		{if $item.year}
+			{$item.year}年{$item.month}月{$item.day}日{$item.hour}时{$item.minute}分
+		{else}
+			未确定预约时间
+		{/if}
+		</td>
+		<td>
+		{if $item.is_cancel}
+		已取消
+		{else}
+			{if $item.is_come}
+			已面谈
+			{else}
+			未面谈
+			{/if}
+		{/if}
+		</td>
+	{else}
+	<form action="user_reserve.php?act=submit_time" method = "POST"style="margin-bottom:0" id="form_{$item.reserve_id}">
+		<td>
+		
+			<input name="id" type="hidden" value="{$item.reserve_id}">
+			{if !$item.is_cancel}
+			<select name="year">
+				<option value=""></option>
+			{foreach from=$year item=item_year}
+				<option value="{$item_year}" {if $item_year eq $item.year}selected{/if}>{$item_year}</option>
+			{/foreach}
+			</select>
+			<select name="month">
+				<option value=""></option>
+			{foreach from=$month item=item_month}
+				<option value="{$item_month}" {if $item_month eq $item.month}selected{/if}>{$item_month}</option>
+			{/foreach}
+			</select>
+			<select name="day">
+				<option value=""></option>
+			{foreach from=$day item=item_day}
+				<option value="{$item_day}" {if $item_day eq $item.day}selected{/if}>{$item_day}</option>
+			{/foreach}
+			</select>
+			<input type="text" name="hour" style="width:30px" value="{$item.hour}">时 
+			<input type="text" name="minute" style="width:30px" value="{$item.minute}">分
+			<input type="submit" name="time">
+			{/if}
+		</td>
+		<td>
+		{if !$item.is_cancel}
+		{if $item.is_come}
+			已面谈
+		{else}
+			<input type="button" value="已面谈" onclick="if(confirm('确认已经与客户进行面谈？该操作将不可取消。')){
+			document.getElementById('come_{$item.reserve_id}').value='1';
+			document.getElementById('form_{$item.reserve_id}').submit();}else{
+			document.getElementById('come_{$item.reserve_id}').value='0'}">
+			<input type="hidden" id="come_{$item.reserve_id}" name="come" value = "0">
+		{/if}
+		&nbsp;&nbsp;
+		{/if}
+		{if !$item.is_come}
+			{if $item.is_cancel}
+				已取消
+			{else}
+				<input type="button" value="取消" onclick="if(confirm('确认要取消该客户的预约？')){
+				document.getElementById('cancel_{$item.reserve_id}').value='1';
+				document.getElementById('form_{$item.reserve_id}').submit();}else{
+				document.getElementById('cancel_{$item.reserve_id}').value='0'}">
+				<input type="hidden" id="cancel_{$item.reserve_id}" name="cancel" value = "0">
+			{/if}
+		{/if}
+		</td>
+	</form>
+	{/if}
+  </tr>
+  {foreachelse}
+  <tr><td class="no-records" colspan="6">{$lang.no_records}</td></tr>
+  {/foreach}
+
+</table>
+<form action="user_reserve.php?act=logout" method="POST">
+<input type="submit" value="登出">
+</form>
+{else}
+<form action="user_reserve.php?act=login" method="POST">
+请输入业务员序列号：
+<input type="password" name="seller_no">
+<input type="submit">
+</form>
+{/if}
+{if $full_page}
+</div>
+<!-- end users list -->
+
+
+{/literal}
+{include file="pagefooter.htm"}
+{/if}

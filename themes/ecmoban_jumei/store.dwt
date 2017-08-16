@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,compare.js'}
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mPMUzPfrPBzAfGp8jG1bzYRmmG6Y9Ev8"></script>
+</head>
+<body style="font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', '微软雅黑', SimSun, '宋体', Heiti, '黑体', sans-serif;background-color: #ecedee;font-size: 16px;">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban_jumei/qq/images/qq.css" rel="stylesheet" type="text/css" />
+ 
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+
+<!-- #BeginLibraryItem "/library/right_link.lbi" --><!-- #EndLibraryItem -->
+<div id="Top" style="padding-bottom:2px;font-size:12px">
+	<div class="tops"></div>
+    <div class=" block header_bg" style="margin-bottom:0px;">
+        <!--顶部导航-->
+        <div class="top_nav_header">
+            <div class="top_nav">
+                <script type="text/javascript">
+                    //初始化主菜单
+                    function sw_nav(obj,tag){
+                        var DisSub = document.getElementById("DisSub_"+obj);
+                        var HandleLI= document.getElementById("HandleLI_"+obj);
+                        if(tag==1){
+                            DisSub.style.display = "block";
+                        }else{
+                            DisSub.style.display = "none";
+                        }
+                    }
+                </script>
+                <div class="block">
+                	<div class="f_l left_login">
+                    	<font id="ECS_MEMBERZONE" > 客服电话：<span style="color: #e34949;font-size: 16px;">400-820-7259</span></font>
+                    </div>
+                    </div>				    
+                	<div class="f_l left_login" style="float:right">
+                    
+                    	<font id="ECS_MEMBERZONE" >{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+                    </div>
+
+                    <div class="header_r">
+                    
+                   
+                 
+                     <!--{if $navigator_list.top}-->
+                        <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+                               <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+                                <!-- {if !$smarty.foreach.nav_top_list.last} -->
+                                <!-- {/if} -->
+                        <!-- {/foreach} -->
+                       <!-- {/if} -->
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear_f"></div>
+        <div class="block" style="padding-top:5px">
+            <a href="index.php">
+				<img src="themes/ecmoban_jumei/images/logo.png" style="float:left;width:150px"/>
+				<div style="float:left;vertical-align:middle;font-size:15px;font-family:微软雅黑;margin-top:23px;margin-left:5px">
+					<p>
+						与国家共命运&nbsp;&nbsp;&nbsp;与地方共发展
+					</p>
+					<p>
+						中国领先P2G互联网交易平台
+					</p>
+				</div>
+
+			</a>
+			<ul style="padding-top: 35px;float: left;list-style: none;margin-left:50px;">
+				<li style="margin-left: 0;float: left;position: relative;">
+					<a href="index.html" style="font-size: 16px;color: #333;display: inline-block;height: 35px;line-height: 35px;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;">首页</a>
+				</li>
+				<li style="margin-left: 30px;float: left;position: relative;">
+					<a href="category-5-0-0-0.html" style="font-size: 16px;color: #333;display: inline-block;height: 35px;line-height: 35px;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;">理财频道</a>
+				</li>
+				<li style="margin-left: 30px;float: left;position: relative;">
+					<a href="guangjin.html" style="font-size: 16px;color: #333;display: inline-block;height: 35px;line-height: 35px;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;">备案机构</a>
+				</li>
+				<li style="margin-left: 30px;float: left;position: relative;">
+					<a href="transfer.html" style="font-size: 16px;color: #333;display: inline-block;height: 35px;line-height: 35px;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;">转让专区</a>
+				</li>
+				<li style="margin-left: 30px;float: left;position: relative;">
+					<a href="store.html" style="font-size: 16px;color: #333;display: inline-block;height: 35px;line-height: 35px;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;">线下门店</a>
+				</li>	
+				<li style="margin-left: 30px;float: left;position: relative;">
+					<a href="user.html" style="font-size: 16px;color: #333;display: inline-block;height: 35px;line-height: 35px;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;">账户资产</a>
+				</li>
+				<li style="margin-left: 30px;float: left;position: relative;">
+					<a href="about_us-36.html" style="font-size: 16px;color: #333;display: inline-block;height: 35px;line-height: 35px;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;">关于我们</a>
+					
+				</li>
+			</ul>
+ 			<div class="clearfix"></div>           
+
+        </div>
+    </div>
+</div>
+
+<div style="clear:both"></div>
+
+<div style="height:370px;width:100%;background-image:url('themes/ecmoban_jumei/images/store-bg.jpg');background-repeat: no-repeat; background-position: center top;"></div>
+<div style="padding-top:50px"><center><img src="themes/ecmoban_jumei/images/offline_store.png" width="370" height="122" alt=""></center></div>
+<div style="width:77%;margin:0 auto;border-top:1px black solid;">
+	<div id="hunan" onmousemove="switchOrderInfo(1)" style="font-family:微软雅黑;border-bottom:2px solid red;margin-bottom:15px;float:left;width:50%;text-align:center;cursor:pointer;"><h1 style="padding:30px 0 30px 0;">湖南省利民花园店</h1></div>
+	<div id="sichun" onmousemove="switchOrderInfo(2)" style="font-family:微软雅黑;border-bottom:2px solid #e1e1e1;margin-bottom:15px;float:left;width:50%;text-align:center;cursor:pointer;"><h1 style="padding:30px 0 30px 0;">四川省保利中心店</h1></div>
+</div>
+<div style="clear:both"></div>
+<div style="clear:both"></div>
+<div style="background-color: #ffffff;">
+	<div style="width:1100px;margin:0 auto">
+		<div id="store_1" style="width: 1098px; margin-bottom:20px;background-color: white;">	
+			<div>
+				<div style="float:left;width:520px;height:475px;"  id="map1"></div>
+				<div style="float:right;width:540px;font-size:20px;font-family:微软雅黑;line-height:36px">
+					<img style="margin-top:15px;width:100%;height:300px" src="themes/ecmoban_jumei/images/store1.png">				
+					<div style="font-size:26px;margin-bottom:20px">
+						门店信息：
+					</div>
+					<div>
+						湖南省利民花园店
+					</div>
+					<div>
+						地址：湖南省常德市武陵大道利民花园1号门面
+					</div>
+					<div>
+						联系方式：0736-2639052
+					</div>
+					
+				</div>
+				<div class="clearfix"></div>
+				<div style="width:1098px;background:#e1e1e1;height:230px;margin-top:20px;">
+					<img style="width:255px;float:left;margin:20px 0 0 15px;" src="themes/ecmoban_jumei/images/hn_01.jpg"/>
+					<img style="width:255px;float:left;margin:20px 0 0 15px;" src="themes/ecmoban_jumei/images/hn_02.jpg"/>
+					<img style="width:255px;float:left;margin:20px 0 0 15px;" src="themes/ecmoban_jumei/images/hn_03.jpg"/>
+					<img style="width:255px;float:left;margin:20px 0 0 15px;" src="themes/ecmoban_jumei/images/hn_04.jpg"/>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div id="store_2" style="width: 1098px;background-color: white;display:none">	
+			<div>
+				<div style="float:left;width:520px;height:475px;"  id="map2"></div>
+				<div style="float:right;width:540px;font-size:20px;font-family:微软雅黑;line-height:36px">
+					<img style="margin-top:15px;width:100%;height:300px" src="themes/ecmoban_jumei/images/store2.png">
+					<div style="font-size:26px;margin-bottom:20px">
+						门店信息：
+					</div>
+					<div>
+						四川省保利中心店
+					</div>
+					<div>
+						地址：四川省成都市武侯区领事馆9号附32号1层
+					</div>
+					<div>
+						联系方式：028-85228001
+					</div>
+					
+				</div>
+				<div class="clearfix"></div> 
+				<div style="width:1098px;background:#e1e1e1;height:230px;margin-top:20px;">
+					<img style="width:255px;float:left;margin:23px 0 0 15px;" src="themes/ecmoban_jumei/images/sc_01.jpg"/>
+					<img style="width:255px;float:left;margin:23px 0 0 15px;" src="themes/ecmoban_jumei/images/sc_02.jpg"/>
+					<img style="width:255px;float:left;margin:23px 0 0 15px;" src="themes/ecmoban_jumei/images/sc_03.jpg"/>
+					<img style="width:255px;float:left;margin:23px 0 0 15px;" src="themes/ecmoban_jumei/images/sc_04.jpg"/>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<div style="height:20px;width:100%"></div>
+</div>
+
+  </body>
+ <script type="text/javascript">
+ 
+	window.onload=function(){
+			
+		var oTop = document.getElementById("b_4");
+		var screenw = document.documentElement.clientWidth || document.body.clientWidth;
+		var screenh = document.documentElement.clientHeight || document.body.clientHeight;
+		oTop.style.left = screenw - oTop.offsetWidth +"px";
+		oTop.style.top = screenh - oTop.offsetHeight + "px";
+		window.onscroll = function(){
+			var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+			oTop.style.top = screenh - oTop.offsetHeight + scrolltop +"px";
+		}
+		oTop.onclick = function(){
+			document.documentElement.scrollTop = document.body.scrollTop =0;
+		}
+		
+		
+		var oTop = document.getElementById("bt_4");
+	  var screenw = document.documentElement.clientWidth || document.body.clientWidth;
+	  var screenh = document.documentElement.clientHeight || document.body.clientHeight;
+	  oTop.style.left = screenw - oTop.offsetWidth +"px";
+	  oTop.style.top = screenh - oTop.offsetHeight + "px";
+	  window.onscroll = function(){
+		var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+		oTop.style.top = screenh - oTop.offsetHeight + scrolltop +"px";
+	  }
+	  oTop.onclick = function(){
+		document.documentElement.scrollTop = document.body.scrollTop =0;
+	  }
+ 
+	
+	}
+ 
+ 
+ 
+	function switchOrderInfo(num){
+		//alert(num);
+		//alert("store_"+num);
+		if(num==1){
+			document.getElementById("store_"+1).style.display="";
+			document.getElementById("hunan").style.cssText = "border-bottom:1px solid red;margin-bottom:15px;float:left;width:50%;text-align:center;cursor:pointer;font-family:微软雅黑;padding-bottom30px;";
+			
+			document.getElementById("store_"+2).style.display="none";
+			document.getElementById("sichun").style.cssText="border-bottom:1px solid #e1e1e1;;margin-bottom:15px;float:left;width:50%;text-align:center;cursor:pointer;font-family:微软雅黑;padding-bottom30px;";
+		}else{
+			document.getElementById("store_"+1).style.display="none";
+			document.getElementById("hunan").style.cssText = "border-bottom:1px solid #e1e1e1;;margin-bottom:15px;float:left;width:50%;text-align:center;cursor:pointer;font-family:微软雅黑;padding-bottom30px;";
+			
+			document.getElementById("store_"+2).style.display="";
+			document.getElementById("sichun").style.cssText="border-bottom:1px solid red;;margin-bottom:15px;float:left;width:50%;text-align:center;cursor:pointer;font-family:微软雅黑;padding-bottom30px;";
+		}
+		
+	}
+ 
+ 
+    //创建和初始化地图函数：
+    function initMap(map_id){
+      createMap(map_id);//创建地图
+      setMapEvent();//设置地图事件
+      addMapControl();//向地图添加控件
+      addMapOverlay(map_id);//向地图添加覆盖物
+    }
+    function createMap(map_id){ 
+        map = new BMap.Map(map_id); 
+        map.centerAndZoom(new BMap.Point(x_array[map_id],y_array[map_id]),19);
+    }
+    function setMapEvent(){
+      map.enableScrollWheelZoom();
+      map.enableKeyboard();
+      map.enableDragging();
+      map.enableDoubleClickZoom()
+    }
+    function addClickHandler(target,window){
+      target.addEventListener("click",function(){
+        target.openInfoWindow(window);
+      });
+    }
+    function addMapOverlay(map_id){
+
+      var markers = [
+        {content:"",title:mark_name[map_id],imageOffset: {width:0,height:3},position:{lat:mark_x[map_id],lng:mark_y[map_id]}}
+      ];
+      for(var index = 0; index < markers.length; index++ ){
+        var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+        var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+          imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+        })});
+        var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+        var opts = {
+          width: 200,
+          title: markers[index].title,
+          enableMessage: false
+        };
+        var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+        marker.setLabel(label);
+        addClickHandler(marker,infoWindow);
+        map.addOverlay(marker);
+      };
+    }
+    //向地图添加控件
+    function addMapControl(){
+      var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+      scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+      map.addControl(scaleControl);
+      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:0});
+      map.addControl(navControl);
+      var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+      map.addControl(overviewControl);
+    }
+	  var map;
+	  
+	  var x_array = new Array();
+	  var y_array = new Array();
+	  x_array["map1"] = 111.698462;
+	  x_array["map2"] = 104.07972;
+	  y_array["map1"] = 29.041548;
+	  y_array["map2"] = 30.630671;
+	  
+	  var mark_name = new Array();
+	  var mark_x = new Array();
+	  var mark_y = new Array();
+	  mark_name["map1"] = "利民花园店";
+	  mark_name["map2"] = "保利中心店";
+	  mark_x["map1"] = 29.041785;
+	  mark_x["map2"] = 30.631117;
+	  mark_y["map1"] = 111.698408;
+	  mark_y["map2"] = 104.079244;
+	
+    initMap("map1");
+	initMap("map2");
+  </script>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

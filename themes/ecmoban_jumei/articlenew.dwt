@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+</head>
+<body style="font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', '微软雅黑', SimSun, '宋体', Heiti, '黑体', sans-serif;background-color: #ecedee;font-size: 16px;">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<!-- {if $article_type eq 1} -->
+	<div class="block clearfix">
+			  {$article.content}
+	</div>
+<!-- {/if} -->
+
+<!-- {if $article_type eq 2} -->
+	<div style="margin-bottom: 20px;width: 1100px;margin-left: auto;margin-right: auto;">
+		<div style="height: 50px;line-height: 50px;font-size: 14px;color: #666;">
+			<a href="index.php" style="color: #666;text-decoration: none;line-height: 50px;font-size: 14px;">政金网</a>
+			   >   新手指南
+		</div>
+		<div style="height: 250px;background: url(themes/ecmoban_jumei/images/guideline-head.png) no-repeat center center;">
+		</div>
+		<div style="background-color: #fff;border: 1px solid #e1e1e1;border-radius: 2px;">
+			<div style="text-align: center;">
+				<a href="article.php?id=36" style="{if $article_small_type eq 1}color: #ff5230;{else}color: #666;{/if}font-size: 24px;position: relative;padding-left: 106px;display: inline-block;height: 58px;line-height: 58px;margin: 0 75px;">
+					<em style="{if $article_small_type eq 1}background-color: #ff5230;{else}background-color: #c3c4c4;{/if}width: 91px;height: 60px;line-height: 30px;border-radius: 50%;position: absolute;text-align: center;font-size: 24px;font-style: italic;color: #fff;top: -35px;left: 0;padding-top: 31px;">
+						PART<br>1
+					</em>关于我们
+				</a>
+				<a href="article.php?id=72" style="{if $article_small_type eq 2}color: #ff5230;{else}color: #666;{/if}font-size: 24px;position: relative;padding-left: 106px;display: inline-block;height: 58px;line-height: 58px;margin: 0 75px;">
+					<em style="{if $article_small_type eq 2}background-color: #ff5230;{else}background-color: #c3c4c4;{/if}width: 91px;height: 60px;line-height: 30px;border-radius: 50%;position: absolute;text-align: center;font-size: 24px;font-style: italic;color: #fff;top: -35px;left: 0;padding-top: 31px;">
+						PART<br>2
+					</em>操作图示
+				</a>
+				<a href="article.php?id=48" style="{if $article_small_type eq 3}color: #ff5230;{else}color: #666;{/if}font-size: 24px;position: relative;padding-left: 106px;display: inline-block;height: 58px;line-height: 58px;margin: 0 75px;">
+					<em style="{if $article_small_type eq 3}background-color: #ff5230;{else}background-color: #c3c4c4;{/if}width: 91px;height: 60px;line-height: 30px;border-radius: 50%;position: absolute;text-align: center;font-size: 24px;font-style: italic;color: #fff;top: -35px;left: 0;padding-top: 31px;">
+						PART<br>3
+					</em>常见问题
+				</a>
+			</div> 
+			{if $article_small_type eq 1}
+			<div style="height: 36px;font-size: 16px;margin-top: 45px;border-bottom: 1px solid #ecedee;text-align: center;position: relative;">
+				<a href="article.php?id=36" style="{if $article.article_id eq 36}color: #e11b0b;{else}color: #333;{/if}margin: 0 40px;text-align: center;text-decoration: none;">
+					平台简介
+				</a>
+				<a href="article.php?id=37" style="{if $article.article_id eq 37}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					运营模式
+				</a>
+				<a href="article.php?id=38" style="{if $article.article_id eq 38}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					平台证照
+				</a>
+				<a href="article.php?id=52" style="{if $article.article_id eq 52}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					联系我们
+				</a>
+				<i style="	{if $article.article_id eq 36}left: 321.33203125px;{/if}
+							{if $article.article_id eq 37}left: 469.77734375px;{/if}
+							{if $article.article_id eq 38}left: 618.22265625px;{/if}
+							{if $article.article_id eq 52}left: 766.66796875px;{/if}
+				width: 11px;height: 11px;background-color: #ff5230;border-radius: 50%;position: absolute;top: 31px;"></i>	
+			</div>
+			{/if}
+			{if $article_small_type eq 2}
+			<div style="height: 36px;font-size: 16px;margin-top: 45px;border-bottom: 1px solid #ecedee;text-align: center;position: relative;">
+				<a href="article.php?id=72" style="{if $article.article_id eq 72}color: #e11b0b;{else}color: #333;{/if}margin: 0 40px;text-align: center;text-decoration: none;">
+					如何注册？
+				</a>
+				<a href="article.php?id=73" style="{if $article.article_id eq 73}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					忘记密码？
+				</a>
+				<a href="article.php?id=74" style="{if $article.article_id eq 74}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					如何充值？
+				</a>
+				<a href="article.php?id=75" style="{if $article.article_id eq 75}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					如何提现？
+				</a>
+				<a href="article.php?id=76" style="{if $article.article_id eq 76}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					怎么投资？
+				</a>
+				<a href="article.php?id=77" style="{if $article.article_id eq 77}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					如何查看第三方保全？
+				</a>
+				<i style="	{if $article.article_id eq 72}left: 86px;{/if}
+							{if $article.article_id eq 73}left: 250px;{/if}
+							{if $article.article_id eq 74}left: 414px;{/if}
+							{if $article.article_id eq 75}left: 579px;{/if}
+							{if $article.article_id eq 76}left: 744px;{/if}
+							{if $article.article_id eq 77}left: 952px;{/if}
+				width: 11px;height: 11px;background-color: #ff5230;border-radius: 50%;position: absolute;top: 31px;"></i>	
+			</div>
+			{/if}
+			{if $article_small_type eq 3}
+			<div style="height: 36px;font-size: 16px;margin-top: 45px;border-bottom: 1px solid #ecedee;text-align: center;position: relative;">
+				<a href="article.php?id=48" style="{if $article.article_id eq 48}color: #e11b0b;{else}color: #333;{/if}margin: 0 40px;text-align: center;text-decoration: none;">
+					账户管理
+				</a>
+				<a href="article.php?id=49" style="{if $article.article_id eq 49}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					资金管理
+				</a>
+				<a href="article.php?id=50" style="{if $article.article_id eq 50}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					投资管理
+				</a>
+				<a href="article.php?id=85" style="{if $article.article_id eq 85}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					转让规则
+				</a>
+				<a href="article.php?id=51" style="{if $article.article_id eq 51}color: #e11b0b;{else}color: #333;{/if}text-decoration: none;margin: 0 40px;text-align: center;">
+					费用标准
+				</a>
+				<i style="	{if $article.article_id eq 48}left: 247px;{/if}
+							{if $article.article_id eq 49}left: 395px;{/if}
+							{if $article.article_id eq 50}left: 543px;{/if}
+							{if $article.article_id eq 85}left: 692px;{/if}
+							{if $article.article_id eq 51}left: 840px;{/if}
+				width: 11px;height: 11px;background-color: #ff5230;border-radius: 50%;position: absolute;top: 31px;"></i>	
+			</div>
+			{/if}
+			<div style="position: relative;padding: 60px;line-height: 30px;">
+				{$article.content}
+			</div>
+		</div>
+	</div>
+<!-- {/if} -->
+
+<!-- {if $article_type eq 3} -->
+	<div style="height: 50px;line-height: 50px;font-size: 14px;color: #666;width: 1100px;margin-left: auto;margin-right: auto;">
+		<a href="index.php" style="color: #666;line-height: 50px;font-size: 14px;">
+			政金网
+		</a> > 
+		<a href="article_cat.php?id=20">
+			资讯中心
+		</a> >
+		<a href="article_cat.php?id={$article.cat_id}">
+			{$article.cat_name}
+		</a>
+	</div>
+	<div style="width: 1100px;margin-left: auto;margin-right: auto;margin-bottom: 20px;" class="clearfix">
+		<div style="width: 782px;float: left;font-size: 14px;">
+			<div style="min-height: 593px;border: 1px solid #e1e1e1;border-radius: 3px;background-color: #fff;font-size:14px">
+				<div style="font-size: 24px;font-weight: normal;padding: 25px 25px 0 25px;">
+					{$article.title}
+				</div>
+				<p style="font-size: 12px;color: #888;padding: 10px 25px 0 25px;">
+				更新时间：{$formed_add_time}    &nbsp;&nbsp;&nbsp;&nbsp;
+                撰写客服：{$article.author}
+				</p>
+				<div style="background-color:white;padding:30px">
+				  {$article.content}
+				</div>
+			</div>
+		</div>
+		<div style="float:right;width: 308px;font-size: 14px;">
+			<dl style="border: 1px solid #e1e1e1;border-radius: 3px;background-color: #fff;padding: 20px 20px 10px 20px;">
+				<dt style="height:50px">
+					<span style="font-size: 18px;">
+						本类资讯
+					</span>
+					<a href="article_cat.php?id={$article.cat_id}" style="color: #1155a2;font-size: 12px;float: right;">
+						更多
+					</a>
+				</dt>
+				<dd style="list-style: none;font-size: 14px;">
+					<ul style="list-style: none;">
+					<!--{foreach from=$article_list10 item=article}-->
+						<li style="font-size: 14px;line-height:36px;height: 36px;overflow:hidden">
+							<a href="article.php?id={$article.article_id}"style="color: #333;text-decoration: none;">
+								{$article.title}
+							</a>
+						</li>
+					<!--{/foreach}-->
+					</ul>
+				</dd>
+			</dl>
+			{if $article.cat_id neq 20}
+			<dl style="border: 1px solid #e1e1e1;border-radius: 3px;background-color: #fff;padding: 20px 20px 0 20px;margin-top: 10px;">
+				<dt style="height: 50px;">
+					<span style="font-size: 18px;">
+						最近公告
+					</span>
+					<a href="article_cat.php?id=20" style="color: #1155a2;font-size: 12px;float: right;">
+						更多
+					</a>
+				</dt>
+				<dd style="font-size: 14px;">
+					<ul style="list-style: none;">
+					<!--{foreach from=$article_list20 item=article}-->
+						<li style="font-size: 14px;line-height:36px;height: 36px;overflow:hidden">
+							<a href="article.php?id={$article.article_id}" style="color: #333;text-decoration: none;font-size: 14px;">
+								{$article.title}
+							</a>
+						</li>
+					</ul>
+					<!--{/foreach}-->
+				</dd>
+			</dl>
+			{/if}
+		</div>
+	</div>
+
+<!-- {/if} -->
+
+<div class="blank"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>
